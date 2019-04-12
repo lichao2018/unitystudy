@@ -8,7 +8,8 @@ public class Main : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		var ui = GameObject.Find("Canvas").transform.Find("wrapper");
-		var btn = ui.transform.Find("left").Find("btn1").gameObject.GetComponent<Button>();
+
+		var btn = GameObject.Find("btn1").GetComponent<Button>();//ui.transform.Find("left").Find("btn1").gameObject.GetComponent<Button>();
 		Debug.Log(btn);
 		btn.onClick.AddListener(
 		   delegate ()

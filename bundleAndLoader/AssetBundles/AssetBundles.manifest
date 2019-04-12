@@ -1,0 +1,7 @@
+ManifestFileVersion: 0
+CRC: 2993756514
+AssetBundleManifest:
+  AssetBundleInfos:
+    Info_0:
+      Name: assets/models/model2.prefab
+      Dependencies: {}

@@ -24,7 +24,7 @@ minx maxx=0.5 miny maxy 0
 
 只有添加了按钮组件的才能点击
 
-```
+```cshape
 var ui = GameObject.Find("Canvas").transform.Find("wrapper");
 		var btn = ui.transform.Find("left").Find("btn1").gameObject.GetComponent<Button>();
 		Debug.Log(btn);
@@ -36,4 +36,6 @@ var ui = GameObject.Find("Canvas").transform.Find("wrapper");
 		  );
 ```
 
+需要把ui打包成一张纹理
+添加sprite atlas然后把图片纹理添加上去
 

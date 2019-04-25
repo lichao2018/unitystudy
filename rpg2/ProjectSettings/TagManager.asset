@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - SpawnHero
+  - ground
+  - A
+  - B
   layers:
   - Default
   - TransparentFX

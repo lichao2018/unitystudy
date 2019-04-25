@@ -8,6 +8,8 @@ public class Move : MonoBehaviour {
 	CharacterController controller;
 	// Use this for initialization
 	Vector3 targetPoint;
+	public GameObject followTarget;
+	Skill skill;
 	Vector3 movedir=Vector3.zero;
 	bool moving = false;
 	void Start () {
@@ -17,10 +19,33 @@ public class Move : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+		if (status.currentSkill != null )//如果当前正在执行技能，停止移动
+		{
+			if (!status.skillExeover)//没有执行完成技能执行技能
+			{
+				if (!status.isInBefore(Time.realtimeSinceStartup))
+				{
+					status.exeSkill();
+				}
+			}else//判断后摇
+			{
+				if (!status.isInAfter(Time.realtimeSinceStartup))
+				{
+					status.currentSkill = null;
+				}
+			}
+			return;
+		}
+
+		if (followTarget!=null)
+		{
+			moveTo(followTarget.transform.position);
+		}
 		if (moving)
 		{
 			targetPoint.y = transform.position.y;
-			if (Vector3.Distance(targetPoint, transform.position) < status.moveSpeed)
+			if (Vector3.Distance(targetPoint, transform.position) < (status.moveSpeed * Time.deltaTime))
 			{
 				moving = false;
 			}
@@ -41,8 +66,17 @@ public class Move : MonoBehaviour {
 			movedir = Vector3.zero;
 		}
 
-		movedir.y -= 20 * Time.deltaTime;
+		movedir.y -= 200 * Time.deltaTime;
 		controller.Move(movedir * Time.deltaTime);
+
+		if (followTarget!=null&&skill!=null)
+		{
+			if (Vector2.Distance(new Vector2(transform.position.x,transform.position.z),new Vector2(followTarget.transform.position.x,followTarget.transform.position.z))<skill.range)
+			{
+				Debug.Log("攻击");
+				status.attack(skill, Time.realtimeSinceStartup);
+			}
+		}
 	}
 
 	public void moveTo(Vector3 p)
@@ -50,4 +84,11 @@ public class Move : MonoBehaviour {
 		moving = true;
 		targetPoint = p;
 	}
+
+	public void followTo(GameObject t,Skill skill)
+	{
+		followTarget = t;
+		this.skill = skill;
+	}
+
 }

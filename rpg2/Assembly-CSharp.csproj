@@ -66,6 +66,7 @@
     <Compile Include="Assets\Script\MouseOrbit.cs" />
     <Compile Include="Assets\Script\Move.cs" />
     <Compile Include="Assets\Script\Skill.cs" />
+    <Compile Include="Assets\Script\Spawner.cs" />
     <Compile Include="Assets\Script\Status.cs" />
     <Reference Include="UnityEditor.StandardEvents">
       <HintPath>F:/proj/unitystudy/rpg2/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>

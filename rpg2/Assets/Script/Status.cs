@@ -16,7 +16,7 @@ public class Status : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (hp<0)
+		if (hp<=0)
 		{
 			Debug.Log("小于0 删除");
 			Destroy(gameObject);

@@ -35,7 +35,18 @@ public class Move : MonoBehaviour {
 					status.currentSkill = null;
 				}
 			}
+			if (animator != null)
+			{
+				animator.SetBool("attack", true);
+				animator.speed = animator.GetCurrentAnimatorClipInfo(0)[0].clip.length/(status.attackTimeAfter+status.attackTimeBefore);
+				
+			}
 			return;
+		}
+		if (animator != null)
+		{
+			animator.speed = 1;
+			animator.SetBool("attack", false);
 		}
 
 		if (followTarget!=null)

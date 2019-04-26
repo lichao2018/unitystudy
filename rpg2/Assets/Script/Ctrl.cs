@@ -27,7 +27,16 @@ public class Ctrl : MonoBehaviour {
 					status.canSkill();//如果点击，则取消技能
 					if (attackAble)
 					{
-						
+						var t = hit.transform;
+						while (t!=null)
+						{
+							if (t.gameObject.GetComponent<Status>()!=null)
+							{
+								break;
+							}
+							t = t.parent;
+						}
+						status.attackSkill.target = t.gameObject;
 						move.followTo(hit.transform.gameObject,status.attackSkill);
 					}else if (isGround)
 					{

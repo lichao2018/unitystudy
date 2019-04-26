@@ -22,7 +22,7 @@ public class Move : MonoBehaviour {
 
 		if (status.currentSkill != null )//如果当前正在执行技能，停止移动
 		{
-			if (!status.skillExeover)//没有执行完成技能执行技能
+			if (!status.currentSkill.skillExeover)//没有执行完成技能执行技能
 			{
 				if (!status.isInBefore(Time.realtimeSinceStartup))
 				{

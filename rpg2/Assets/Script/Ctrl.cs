@@ -37,7 +37,7 @@ public class Ctrl : MonoBehaviour {
 							t = t.parent;
 						}
 						status.attackSkill.target = t.gameObject;
-						move.followTo(hit.transform.gameObject,status.attackSkill);
+						move.followTo(t.gameObject,status.attackSkill);
 					}else if (isGround)
 					{
 						move.followTarget = null;

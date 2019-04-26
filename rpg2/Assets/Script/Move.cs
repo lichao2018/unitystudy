@@ -10,6 +10,7 @@ public class Move : MonoBehaviour {
 	Vector3 targetPoint;
 	public GameObject followTarget;
 	Skill skill;
+	public Animator animator;
 	Vector3 movedir=Vector3.zero;
 	bool moving = false;
 	void Start () {
@@ -19,7 +20,6 @@ public class Move : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
 		if (status.currentSkill != null )//如果当前正在执行技能，停止移动
 		{
 			if (!status.currentSkill.skillExeover)//没有执行完成技能执行技能
@@ -64,6 +64,11 @@ public class Move : MonoBehaviour {
 		if (!moving)
 		{
 			movedir = Vector3.zero;
+		}
+
+		if (animator != null)
+		{
+			animator.SetBool("walking", moving);
 		}
 
 		movedir.y -= 200 * Time.deltaTime;

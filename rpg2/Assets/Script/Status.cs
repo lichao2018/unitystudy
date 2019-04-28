@@ -19,7 +19,14 @@ public class Status : MonoBehaviour {
 		if (hp<=0)
 		{
 			Debug.Log("小于0 删除");
+			var dis = gameObject.transform.GetChild(0);
+			dis.SetParent(null);
 			Destroy(gameObject);
+			var ani= dis.gameObject.GetComponent<Animator>();
+			if (ani!=null)
+			{
+				ani.enabled = false;
+			}
 		}
 	}
 

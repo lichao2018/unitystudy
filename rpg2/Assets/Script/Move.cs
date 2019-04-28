@@ -80,6 +80,14 @@ public class Move : MonoBehaviour {
 		if (animator != null)
 		{
 			animator.SetBool("walking", moving);
+			if (moving)
+			{
+				animator.speed = status.moveSpeed*1.25f;
+			}
+			else
+			{
+				animator.speed = 1;
+			}
 		}
 
 		movedir.y -= 200 * Time.deltaTime;

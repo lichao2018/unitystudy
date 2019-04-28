@@ -11,7 +11,15 @@ public class Status : MonoBehaviour {
 
 	public Skill currentSkill;//当前正在执行的技能
 	void Start () {
-		
+		foreach(var c in transform.GetChild(0).gameObject.GetComponentsInChildren<Collider>())
+		{
+			c.enabled = false;
+		}
+
+		foreach (var c in transform.GetChild(0).gameObject.GetComponentsInChildren<Rigidbody>())
+		{
+			c.isKinematic = true;
+		}
 	}
 	
 	// Update is called once per frame
@@ -26,6 +34,14 @@ public class Status : MonoBehaviour {
 			if (ani!=null)
 			{
 				ani.enabled = false;
+			}
+			foreach (var c in dis.gameObject.GetComponentsInChildren<Collider>())
+			{
+				c.enabled = true;
+			}
+			foreach (var c in dis.gameObject.GetComponentsInChildren<Rigidbody>())
+			{
+				c.isKinematic = false;
 			}
 		}
 	}

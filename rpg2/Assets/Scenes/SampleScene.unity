@@ -329,6 +329,14 @@ Prefab:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: b464c7afc9a38e649a09963ed059df21, type: 2}
+    - target: {fileID: 9500000, guid: 945710ba25993c54a8a0f7137c23ef95, type: 3}
+      propertyPath: m_WarningMessage
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 9500000, guid: 945710ba25993c54a8a0f7137c23ef95, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 945710ba25993c54a8a0f7137c23ef95, type: 3}
   m_IsPrefabAsset: 0

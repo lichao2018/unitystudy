@@ -17,7 +17,11 @@
       var gameInstance = UnityLoader.instantiate("gameContainer", "Build/webgl.json", {onProgress: function(a,b){
 	  console.log(b);
 	  resize();
-	  var gc=document.getElementById("gameContainer");
+	  var up=document.getElementById("UnityProgress");
+	  up.innerText="loading "+((b*100)>>0)+"%";
+	  if(b>=1){
+		up.parentNode.removeChild(up);
+	  }
 	  }});
 	  
 	  function resize(){
@@ -29,6 +33,7 @@
     </script>
   </head>
  <body onresize="resize()">  
-      <div id="gameContainer" style="width: 100%; height: 100%;margin:auto" ></div>     
+      <div id="gameContainer" style="width: 100%; height: 100%;margin:auto" ></div>    
+		<div style="position: absolute;top:0px;left:0px;font-size:50px;color:red;" id="UnityProgress"></div>
   </body>
 </html>

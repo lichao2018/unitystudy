@@ -64,6 +64,7 @@
     <Compile Include="Assets\Script\AI.cs" />
     <Compile Include="Assets\Script\Ctrl.cs" />
     <Compile Include="Assets\Script\Mgr.cs" />
+    <Compile Include="Assets\Script\model\User.cs" />
     <Compile Include="Assets\Script\MouseOrbit.cs" />
     <Compile Include="Assets\Script\Move.cs" />
     <Compile Include="Assets\Script\Skill.cs" />

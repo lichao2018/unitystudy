@@ -8,8 +8,8 @@ public class Status : MonoBehaviour {
 	public float attackTimeAfter = .5f;//攻击前摇
 	public float attackTimeBefore = .5f;//攻击后摇
 	public Skill attackSkill = new Skill();
-
 	public Skill currentSkill;//当前正在执行的技能
+	public User user;
 	void Start () {
 		foreach(var c in transform.GetChild(0).gameObject.GetComponentsInChildren<Collider>())
 		{

@@ -5,5 +5,5 @@ using UnityEngine.UI;
 
 public class Icon  : MonoBehaviour
 {
-	
+	public int id;
 }

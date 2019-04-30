@@ -13,18 +13,19 @@ public class JueseUI : MonoBehaviour {
 			delegate ()
 			{
 				gameObject.SetActive(false);
-				//transform.Find("wrapper").Find("jueseui").gameObject.SetActive(true);
 			}
 		);
-
-		Instantiate(Mgr.getInstance().icons[0], transform.Find("Button (9)"));
+		Mgr.getInstance().newIcon(0,transform.Find("Button (9)"));
+		Mgr.getInstance().newIcon(1,transform.Find("Button (10)"));
 
 		var dm= transform.Find("Button (1)").gameObject.GetComponent<DropMe>();
 		dm.onDropEvent.AddListener(
 			delegate (PointerEventData a,DropMe b)
 			{
-				Instantiate(Mgr.getInstance().icons[0], b.gameObject.transform);
-				Debug.Log("ondrop"+a+b);
+				
+				var iconB = a.pointerDrag.GetComponent<Icon>();
+				Mgr.getInstance().newIcon(iconB.id, b.gameObject.transform);
+				Debug.Log("ondrop"+iconB.id);
 			}
 		);
 	}

@@ -63,11 +63,17 @@
   <ItemGroup>
     <Compile Include="Assets\Script\AI.cs" />
     <Compile Include="Assets\Script\Ctrl.cs" />
+    <Compile Include="Assets\Script\Mgr.cs" />
     <Compile Include="Assets\Script\MouseOrbit.cs" />
     <Compile Include="Assets\Script\Move.cs" />
     <Compile Include="Assets\Script\Skill.cs" />
     <Compile Include="Assets\Script\Spawner.cs" />
     <Compile Include="Assets\Script\Status.cs" />
+    <Compile Include="Assets\Script\ui\DragMe.cs" />
+    <Compile Include="Assets\Script\ui\DropMe.cs" />
+    <Compile Include="Assets\Script\ui\Icon.cs" />
+    <Compile Include="Assets\Script\ui\JueseUI.cs" />
+    <Compile Include="Assets\Script\ui\MainUI.cs" />
     <Reference Include="UnityEditor.StandardEvents">
       <HintPath>F:/proj/unitystudy/rpg2/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
     </Reference>

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class Ctrl : MonoBehaviour {
 	Move move;
@@ -13,12 +14,12 @@ public class Ctrl : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-		RaycastHit hit;
-		var isHit = Physics.Raycast(ray, out hit, 100);
-		if (isHit)
+		if (Input.GetMouseButton(0)&& !EventSystem.current.IsPointerOverGameObject())
 		{
-			if (Input.GetMouseButton(0)) {//鼠标按下
+			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+			RaycastHit hit;
+			var isHit = Physics.Raycast(ray, out hit, 100);
+			if (isHit) {//鼠标按下
 				var isGround = hit.transform.gameObject.CompareTag("ground");
 				var attackAble = !hit.transform.gameObject.CompareTag(gameObject.tag)&&!isGround;
 				var isClick = Input.GetMouseButtonDown(0);

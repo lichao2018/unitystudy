@@ -67,6 +67,7 @@ public class JueseUI : MonoBehaviour {
 			delegate (int index)
 			{
 				updateEqIcon(index);
+				updateStats();
 			}
 		);
 		user.packages.onChangeEvent.AddListener(
@@ -75,6 +76,14 @@ public class JueseUI : MonoBehaviour {
 				updatePackIcon(index);
 			}
 		);
+		updateStats();
+	}
+
+	void updateStats()
+	{
+		var t = transform.Find("moveSpeedLab");
+		var txt = t.gameObject.GetComponent<Text>();
+		txt.text ="movespeed:"+ user.getMoveSpeed() + "";
 	}
 
 	void swapIcon(PointerEventData a, DropMe b)

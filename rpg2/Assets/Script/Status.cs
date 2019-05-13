@@ -4,7 +4,22 @@ using UnityEngine;
 
 public class Status : MonoBehaviour {
 	public int hp = 3;
-	public float moveSpeed = 1;
+	public float _moveSpeed = 1;
+	public float moveSpeed
+	{
+		get
+		{
+			if (user!=null)
+			{
+				return user.getMoveSpeed();
+			}
+			return _moveSpeed;
+		}
+		set
+		{
+			_moveSpeed = value;
+		}
+	}
 	public float attackTimeAfter = .5f;//攻击前摇
 	public float attackTimeBefore = .5f;//攻击后摇
 	public Skill attackSkill = new Skill();

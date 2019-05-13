@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class Icon 
 {
+	public static Item ITEM = new Item();
 	public int id;
-	public int assetid;
+	public Item item = ITEM;
 }

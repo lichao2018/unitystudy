@@ -9,9 +9,11 @@ public class IndexEvent : UnityEvent<int>
 {
 }
 public class IconPackage  {
+	public int num = 0;
 	public IndexEvent onChangeEvent = new IndexEvent();
 	private Icon[] icons; //= new Icon[10];//背包
 	public IconPackage(int num) {
+		this.num = num;
 		icons = new Icon[num];
 	}
 	

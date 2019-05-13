@@ -17,10 +17,15 @@ public class Mgr : MonoBehaviour {
 		user.packages.setIcon(new Icon(),1);
 		user.packages.setIcon(new Icon(),2);
 		Icon icon = new Icon();
-		icon.assetid = 1;
+		icon.item = new Item();
+		icon.item.assetid = 1;
 		user.packages.setIcon(icon,3);
 		user.eqs.setIcon(new Icon(), 0);
 		users.Add(user);
+
+		var player= (GameObject)GameObject.Find("player");
+		var status= player.GetComponent<Status>();
+		status.user = user;
 	}
 	
 	// Update is called once per frame
@@ -38,7 +43,7 @@ public class Mgr : MonoBehaviour {
 		var iconImg = iconObj.GetComponent<Image>();
 		//var icon = iconObj.GetComponent<Icon>();
 		//icon.id = id;
-		iconImg.sprite = Mgr.getInstance().icons[icon.assetid];
+		iconImg.sprite = Mgr.getInstance().icons[icon.item.assetid];
 		return iconObj;
 	}
 }

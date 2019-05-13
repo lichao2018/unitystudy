@@ -12,6 +12,15 @@ public class Mgr : MonoBehaviour {
 	public List<User> users = new List<User>();
 	void Start () {
 		_ins = this;
+		var user = new User();
+		user.packages.setIcon(new Icon(),0);
+		user.packages.setIcon(new Icon(),1);
+		user.packages.setIcon(new Icon(),2);
+		Icon icon = new Icon();
+		icon.assetid = 1;
+		user.packages.setIcon(icon,3);
+		user.eqs.setIcon(new Icon(), 0);
+		users.Add(user);
 	}
 	
 	// Update is called once per frame
@@ -23,13 +32,13 @@ public class Mgr : MonoBehaviour {
 		return _ins;
 	}
 
-	public GameObject newIcon(int id,Transform parent)
+	public GameObject newIcon(Icon icon,Transform parent)
 	{
 		var iconObj = Instantiate(Mgr.getInstance().iconPrefab, parent);
 		var iconImg = iconObj.GetComponent<Image>();
-		var icon = iconObj.GetComponent<Icon>();
-		icon.id = id;
-		iconImg.sprite = Mgr.getInstance().icons[id];
+		//var icon = iconObj.GetComponent<Icon>();
+		//icon.id = id;
+		iconImg.sprite = Mgr.getInstance().icons[icon.assetid];
 		return iconObj;
 	}
 }

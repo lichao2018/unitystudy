@@ -21,7 +21,6 @@ GameObject:
   - component: {fileID: 224576749512261738}
   - component: {fileID: 222317821439010392}
   - component: {fileID: 114947767444881446}
-  - component: {fileID: 114554576481495924}
   - component: {fileID: 114962666076853726}
   m_Layer: 5
   m_Name: Icon
@@ -30,18 +29,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &114554576481495924
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1165563076826116}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 039aa752240cdb24cbd26b19048f7180, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  id: 0
 --- !u!114 &114947767444881446
 MonoBehaviour:
   m_ObjectHideFlags: 1

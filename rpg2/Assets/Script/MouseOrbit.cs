@@ -84,7 +84,7 @@ public class MouseOrbit : MonoBehaviour {
 
 
 		}
-		/*else
+		else if(target!=null)
 		{
 			Quaternion rotation = Quaternion.Euler(y, x, 0);
 
@@ -95,7 +95,7 @@ public class MouseOrbit : MonoBehaviour {
 			transform.rotation = rotation;
 
 			transform.position = position;
-		}*/
+		}
 	}
 
 	//Calculate Distance Method
@@ -116,15 +116,18 @@ public class MouseOrbit : MonoBehaviour {
 	//Scroll Mouse Method
 	void ScrollMouse()
 	{
-		distanceLerp = Mathf.Lerp(distanceLerp, distance, Time.deltaTime * 5);
-		if (Input.GetAxis("Mouse ScrollWheel") != 0)
+		if (target != null)
 		{
-			// get the distance between camera and target
+			distanceLerp = Mathf.Lerp(distanceLerp, distance, Time.deltaTime * 5);
+			if (Input.GetAxis("Mouse ScrollWheel") != 0)
+			{
+				// get the distance between camera and target
 
-			distance = Vector3.Distance(transform.position, target.transform.position);
+				distance = Vector3.Distance(transform.position, target.transform.position);
 
-			distance = ScrollLimit(distance - Input.GetAxis("Mouse ScrollWheel") * scrollSpeed, zoomMin, zoomMax);
+				distance = ScrollLimit(distance - Input.GetAxis("Mouse ScrollWheel") * scrollSpeed, zoomMin, zoomMax);
 
+			}
 		}
 	}
 

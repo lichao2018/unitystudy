@@ -1,4 +1,0 @@
-sceneSetups:
-- path: Assets/Topdown Kit/Scene/Dreamdev Village.unity
-  isLoaded: 1
-  isActive: 1

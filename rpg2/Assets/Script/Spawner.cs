@@ -59,6 +59,9 @@ public class Spawner : MonoBehaviour
 	void SpawnMonster()
 	{
 		GameObject monSpawn = Instantiate(monsterList[Random.Range(0, monsterList.Length)], RandomPostion(), Quaternion.identity);
+		var status= monSpawn.GetComponent<Status>();
+		status.model = Instantiate(Mgr.getInstance().models[Random.Range(0, Mgr.getInstance().models.Length)], monSpawn.transform, false);
+		monSpawn.AddComponent<AI>();
 		monSpawn.tag = tag;
 		for (int i = 0; i < spawnList.Length; i++)
 		{

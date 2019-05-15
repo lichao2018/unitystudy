@@ -25,13 +25,14 @@ public class Status : MonoBehaviour {
 	public Skill attackSkill = new Skill();
 	public Skill currentSkill;//当前正在执行的技能
 	public User user;
+	public GameObject model;//模型动画
 	void Start () {
-		foreach(var c in transform.GetChild(0).gameObject.GetComponentsInChildren<Collider>())
+		foreach(var c in model.GetComponentsInChildren<Collider>())
 		{
 			c.enabled = false;
 		}
 
-		foreach (var c in transform.GetChild(0).gameObject.GetComponentsInChildren<Rigidbody>())
+		foreach (var c in model.GetComponentsInChildren<Rigidbody>())
 		{
 			c.isKinematic = true;
 		}
@@ -42,7 +43,7 @@ public class Status : MonoBehaviour {
 		if (hp<=0)
 		{
 			Debug.Log("小于0 删除");
-			var dis = gameObject.transform.GetChild(0);
+			var dis = model.transform;//gameObject.transform.GetChild(0);
 			dis.SetParent(null);
 			Destroy(gameObject);
 			var ani= dis.gameObject.GetComponent<Animator>();

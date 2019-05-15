@@ -16,6 +16,7 @@ public class Move : MonoBehaviour {
 	void Start () {
 		controller = this.GetComponent<CharacterController>();
 		status = this.GetComponent<Status>();
+		animator = status.model.GetComponent<Animator>();
 	}
 	
 	// Update is called once per frame

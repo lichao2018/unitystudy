@@ -26,7 +26,6 @@ public class MouseOrbit : MonoBehaviour {
 		Vector3 angles = transform.eulerAngles;
 		x = angles.y;
 		y = angles.x;
-
 		CalDistance();
 	}
 	
@@ -85,7 +84,7 @@ public class MouseOrbit : MonoBehaviour {
 
 
 		}
-		else
+		/*else
 		{
 			Quaternion rotation = Quaternion.Euler(y, x, 0);
 
@@ -96,19 +95,22 @@ public class MouseOrbit : MonoBehaviour {
 			transform.rotation = rotation;
 
 			transform.position = position;
-		}
+		}*/
 	}
 
 	//Calculate Distance Method
-	void CalDistance()
+	public void CalDistance()
 	{
-		distance = zoomMax;
-		distanceLerp = distance;
-		Quaternion rotation = Quaternion.Euler(y, x, 0);
-		Vector3 calPos = new Vector3(0, 0, -distanceLerp);
-		position = rotation * calPos + target.transform.position;
-		transform.rotation = rotation;
-		transform.position = position;
+		if (target != null)
+		{
+			distance = zoomMax;
+			distanceLerp = distance;
+			Quaternion rotation = Quaternion.Euler(y, x, 0);
+			Vector3 calPos = new Vector3(0, 0, -distanceLerp);
+			position = rotation * calPos + target.transform.position;
+			transform.rotation = rotation;
+			transform.position = position;
+		}
 	}
 
 	//Scroll Mouse Method

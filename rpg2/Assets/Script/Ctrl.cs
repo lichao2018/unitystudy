@@ -47,7 +47,7 @@ public class Ctrl : MonoBehaviour {
 				}
 				else
 				{
-					if (move.followTarget==null)
+					if (isGround&&move.followTarget==null)
 					{
 						move.moveTo(hit.point);
 					}

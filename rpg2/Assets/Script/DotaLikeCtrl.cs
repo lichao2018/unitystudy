@@ -25,11 +25,11 @@ public class DotaLikeCtrl : MonoBehaviour
 		{
 			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 			RaycastHit hit;
-			var isHit = Physics.Raycast(ray, out hit, 100);
+			var isHit = Physics.Raycast(ray, out hit, 100, LayerMask.GetMask("B", "Ground"));
 			if (isHit)
 			{//鼠标按下
 				var isGround = hit.transform.gameObject.CompareTag("ground");
-				var attackAble = !hit.transform.gameObject.CompareTag(gameObject.tag) && !isGround;
+				var attackAble = hit.transform.gameObject.tag=="B" && !isGround;
 				var isClick = Input.GetMouseButtonDown(0);
 				if (isClick)
 				{

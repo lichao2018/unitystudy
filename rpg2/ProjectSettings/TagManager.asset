@@ -8,6 +8,7 @@ TagManager:
   - ground
   - A
   - B
+  - Item
   layers:
   - Default
   - TransparentFX
@@ -18,10 +19,10 @@ TagManager:
   - 
   - 
   - PostProcessing
-  - 
-  - 
-  - 
-  - 
+  - Ground
+  - A
+  - B
+  - Item
   - 
   - 
   - 

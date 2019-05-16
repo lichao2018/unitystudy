@@ -59,6 +59,7 @@ public class Spawner : MonoBehaviour
 	void SpawnMonster()
 	{
 		GameObject monSpawn = Instantiate(monsterList[Random.Range(0, monsterList.Length)], RandomPostion(), Quaternion.identity);
+		monSpawn.layer = LayerMask.NameToLayer("B");
 		var status= monSpawn.GetComponent<Status>();
 		status.model = Instantiate(Mgr.getInstance().models[Random.Range(0, Mgr.getInstance().models.Length)], monSpawn.transform, false);
 		monSpawn.AddComponent<AI>();

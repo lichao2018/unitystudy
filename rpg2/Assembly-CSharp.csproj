@@ -63,6 +63,7 @@
   <ItemGroup>
     <Compile Include="Assets\Script\AI.cs" />
     <Compile Include="Assets\Script\Ctrl.cs" />
+    <Compile Include="Assets\Script\DotaLikeCtrl.cs" />
     <Compile Include="Assets\Script\Mgr.cs" />
     <Compile Include="Assets\Script\model\Icon.cs" />
     <Compile Include="Assets\Script\model\IconPackage.cs" />

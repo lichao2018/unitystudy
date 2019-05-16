@@ -23,10 +23,11 @@ public class Mgr : MonoBehaviour {
 		icon.item.assetid = 1;
 		user.packages.setIcon(icon,3);
 		user.eqs.setIcon(new Icon(), 0);
+		user.eqs.setIcon(new Icon(), 1);
 		users.Add(user);
 
 		var player = Instantiate(monsterList[0]);//(GameObject)GameObject.Find("player");
-		player.AddComponent<Ctrl>();
+		player.AddComponent<DotaLikeCtrl>();
 		var status= player.GetComponent<Status>();
 		status.model=Instantiate(models[0], player.transform, false);
 		status.user = user;

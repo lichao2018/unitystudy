@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
+//主机游戏类型的控制器，点击技能释放攻击，不需要指定怪物
 public class Ctrl : MonoBehaviour {
 	Move move;
 	Status status;
@@ -38,19 +39,19 @@ public class Ctrl : MonoBehaviour {
 							t = t.parent;
 						}
 						status.attackSkill.target = t.gameObject;
-						move.followTo(t.gameObject,status.attackSkill);
+						//followTo(t.gameObject,status.attackSkill);
 					}else if (isGround)
 					{
-						move.followTarget = null;
+						//followTarget = null;
 						move.moveTo(hit.point);
 					}
 				}
 				else
 				{
-					if (isGround&&move.followTarget==null)
-					{
-						move.moveTo(hit.point);
-					}
+					//if (isGround&&followTarget==null)
+					//{
+					//	move.moveTo(hit.point);
+					//}
 				}
 			}
 		}

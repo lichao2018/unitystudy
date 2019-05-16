@@ -8,8 +8,6 @@ public class Move : MonoBehaviour {
 	CharacterController controller;
 	// Use this for initialization
 	Vector3 targetPoint;
-	public GameObject followTarget;
-	Skill skill;
 	public Animator animator;
 	Vector3 movedir=Vector3.zero;
 	bool moving = false;
@@ -50,10 +48,7 @@ public class Move : MonoBehaviour {
 			animator.SetBool("attack", false);
 		}
 
-		if (followTarget!=null)
-		{
-			moveTo(followTarget.transform.position);
-		}
+		
 		if (moving)
 		{
 			targetPoint.y = transform.position.y;
@@ -93,15 +88,6 @@ public class Move : MonoBehaviour {
 
 		movedir.y -= 200 * Time.deltaTime;
 		controller.Move(movedir * Time.deltaTime);
-
-		if (followTarget!=null&&skill!=null)
-		{
-			if (Vector2.Distance(new Vector2(transform.position.x,transform.position.z),new Vector2(followTarget.transform.position.x,followTarget.transform.position.z))<skill.range)
-			{
-				Debug.Log("攻击");
-				status.attack(skill, Time.realtimeSinceStartup);
-			}
-		}
 	}
 
 	public void moveTo(Vector3 p)
@@ -110,10 +96,6 @@ public class Move : MonoBehaviour {
 		targetPoint = p;
 	}
 
-	public void followTo(GameObject t,Skill skill)
-	{
-		followTarget = t;
-		this.skill = skill;
-	}
+	
 
 }

@@ -77,6 +77,7 @@ public class Mgr : MonoBehaviour {
 			if (g!=null)
 			{
 				users[0].model.transform.position = g.transform.position;
+				users[0].model.transform.eulerAngles = new Vector3(0,g.transform.eulerAngles.y ,0);
 			}
 
 			async = null;

@@ -26,6 +26,11 @@ public class MouseOrbit : MonoBehaviour {
 		Vector3 angles = transform.eulerAngles;
 		x = angles.y;
 		y = angles.x;
+		if (target == null)
+		{
+			target = Mgr.getInstance().users[0].model;
+		}
+
 		CalDistance();
 	}
 	

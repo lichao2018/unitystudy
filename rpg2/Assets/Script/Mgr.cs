@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Mgr : MonoBehaviour {
 
@@ -12,15 +13,38 @@ public class Mgr : MonoBehaviour {
 	public GameObject[] models;
 	public GameObject[] monsterList; //monster list to spawn
 	public List<User> users = new List<User>();
+	public Dictionary<int,Item> items=new Dictionary<int,Item>();
+
+	public AsyncOperation async = null;
+	public string posName = null;
 	void Start () {
 		_ins = this;
+
+		//init items
+		var item = new Item();
+		item.id = 0;
+		item.assetid = 0;
+		items.Add(item.id, item);
+
+
+		item = new Item();
+		item.id = 1;
+		item.assetid = 1;
+		items.Add(item.id, item);
+
+
+		item = new Item();
+		item.id = 2;//钥匙
+		item.assetid = 1;
+		items.Add(item.id, item);
+
+
 		var user = new User();
 		user.packages.setIcon(new Icon(),0);
 		user.packages.setIcon(new Icon(),1);
 		user.packages.setIcon(new Icon(),2);
 		Icon icon = new Icon();
-		icon.item = new Item();
-		icon.item.assetid = 1;
+		icon.item = getItem(1);
 		user.packages.setIcon(icon,3);
 		user.eqs.setIcon(new Icon(), 0);
 		user.eqs.setIcon(new Icon(), 1);
@@ -35,17 +59,28 @@ public class Mgr : MonoBehaviour {
 		user.model = player;
 		player.tag = "A";
 
-		var mo= Camera.main.GetComponent<MouseOrbit>();
-		if (mo != null)
+		
+		foreach(var o in SceneManager.GetActiveScene().GetRootGameObjects())
 		{
-			mo.target = player;
-			mo.CalDistance();
+			DontDestroyOnLoad(o);
 		}
+		SceneManager.LoadScene("Scenes/" + "scene1", LoadSceneMode.Single);
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		
+		if (async != null&&async.isDone)
+		{
+			Debug.Log(async.isDone+posName);
+
+			var g= GameObject.Find(posName);
+			if (g!=null)
+			{
+				users[0].model.transform.position = g.transform.position;
+			}
+
+			async = null;
+		}
 	}
 	public static Mgr getInstance()
 	{
@@ -60,5 +95,10 @@ public class Mgr : MonoBehaviour {
 		//icon.id = id;
 		iconImg.sprite = Mgr.getInstance().icons[icon.item.assetid];
 		return iconObj;
+	}
+
+	public Item getItem(int id)
+	{
+		return items[id];
 	}
 }

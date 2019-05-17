@@ -9,6 +9,7 @@ TagManager:
   - A
   - B
   - Item
+  - Door
   layers:
   - Default
   - TransparentFX
@@ -23,7 +24,7 @@ TagManager:
   - A
   - B
   - Item
-  - 
+  - Door
   - 
   - 
   - 

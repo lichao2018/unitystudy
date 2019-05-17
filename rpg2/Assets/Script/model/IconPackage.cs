@@ -27,4 +27,20 @@ public class IconPackage  {
 		icons[index] = icon;
 		onChangeEvent.Invoke(index);
 	}
+	
+	//在空闲格子添加道具
+	public bool addFree(int id)
+	{
+		for (var i = 0; i < icons.Length;i++)
+		{
+			if (getIcon(i)==null)
+			{
+				var icon = new Icon();
+				icon.item = Mgr.getInstance().getItem(id);
+				setIcon(icon, i);
+				return true;
+			}
+		}
+		return false;
+	}
 }

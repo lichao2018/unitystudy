@@ -96,6 +96,8 @@ public class Move : MonoBehaviour {
 		targetPoint = p;
 	}
 
-	
-
+	public void stopMove()
+	{
+		moving = false;
+	}
 }

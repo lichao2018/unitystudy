@@ -4,22 +4,49 @@ using UnityEngine;
 
 public class AI : MonoBehaviour {
 	Move move;
+    public float visibleRange = 5;
+    public float attackRange = 3;
+
+    public float actRestTime = 10;
+    private float lastActTime;
+    private GameObject player;
+    private Animator animator;
+
 	// Use this for initialization
 	void Start () {
+        player = Mgr.getInstance().player;
+        animator = this.GetComponent<Status>().model.GetComponent<Animator>();
 		move = this.GetComponent<Move>();
 		randomPos();
-		InvokeRepeating("randomPos", 10, 10);
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		
+        float distanceToPlayer = Vector3.Distance(player.transform.position, transform.position);
+        if(distanceToPlayer < attackRange){
+            move.stopMove();
+            animator.SetBool("attack", true);
+        }else if(distanceToPlayer < visibleRange){
+            moveToPlayer();
+        }else{
+            if(Time.time - lastActTime > actRestTime){
+                randomPos();
+            }
+        }
 	}
+
 	void randomPos()
 	{
-		var p = transform.position;
+        lastActTime = Time.time;
+        animator.SetBool("attack", false);
+        var p = transform.position;
 		p.x += Random.Range(-10, 10);
 		p.z += Random.Range(-10, 10);
 		move.moveTo(p);
 	}
+
+    void moveToPlayer(){
+        animator.SetBool("attack", false);
+        move.moveTo(player.transform.position);
+    }
 }

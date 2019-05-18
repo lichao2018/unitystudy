@@ -17,6 +17,9 @@ public class Mgr : MonoBehaviour {
 
 	public AsyncOperation async = null;
 	public string posName = null;
+
+    public GameObject player;
+
 	void Start () {
 		_ins = this;
 
@@ -50,7 +53,7 @@ public class Mgr : MonoBehaviour {
 		user.eqs.setIcon(new Icon(), 1);
 		users.Add(user);
 
-		var player = Instantiate(monsterList[0]);//(GameObject)GameObject.Find("player");
+	    player = Instantiate(monsterList[0]);//(GameObject)GameObject.Find("player");
 		player.layer = LayerMask.NameToLayer("A");
 		player.AddComponent<DotaLikeCtrl>();
 		var status= player.GetComponent<Status>();

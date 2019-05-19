@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class AI : MonoBehaviour {
 	Move move;
-    public float visibleRange = 5;
-    public float attackRange = 3;
+    public float visibleRange = 3;
+    public float attackRange = 1;
 
     public float actRestTime = 10;
     private float lastActTime;

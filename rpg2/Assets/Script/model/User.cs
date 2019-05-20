@@ -7,6 +7,7 @@ public class User {
 	// Use this for initialization
 	public IconPackage packages = new IconPackage(10);//new Icon[10];//背包
 	public IconPackage eqs = new IconPackage(5); //new Icon[5];//装备
+	public IconPackage skills = new IconPackage(5); //new Icon[5];//装备
 	private float _moveSpeed = -1;
 	public GameObject model;
 	public User()

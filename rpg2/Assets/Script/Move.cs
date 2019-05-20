@@ -41,7 +41,7 @@ public class Move : MonoBehaviour {
 			}
 			else
 			{
-				animator.speed = animator.GetCurrentAnimatorClipInfo(0)[0].clip.length / (status.attackTimeAfter + status.attackTimeBefore);
+				animator.speed = animator.GetCurrentAnimatorClipInfo(0)[0].clip.length / (status.currentSkill.data.attackTimeAfter + status.currentSkill.data.attackTimeBefore)*status.attackSpeed;
 			}
 			return;
 		}

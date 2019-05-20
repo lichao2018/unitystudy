@@ -38,7 +38,7 @@ public class Ctrl : MonoBehaviour {
 							}
 							t = t.parent;
 						}
-						status.attackSkill.target = t.gameObject;
+						//status.attackSkill.target = t.gameObject;
 						//followTo(t.gameObject,status.attackSkill);
 					}else if (isGround)
 					{

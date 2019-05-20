@@ -34,21 +34,18 @@ public class Move : MonoBehaviour {
 					status.currentSkill = null;
 				}
 			}
-			if (animator != null)
+
+			if (status.currentSkill==null)
 			{
-				animator.SetBool("attack", true);
-				animator.speed = animator.GetCurrentAnimatorClipInfo(0)[0].clip.length/(status.attackTimeAfter+status.attackTimeBefore);
-				
+				animator.speed = 1;
+			}
+			else
+			{
+				animator.speed = animator.GetCurrentAnimatorClipInfo(0)[0].clip.length / (status.attackTimeAfter + status.attackTimeBefore);
 			}
 			return;
 		}
-		if (animator != null)
-		{
-			animator.speed = 1;
-			animator.SetBool("attack", false);
-		}
 
-		
 		if (moving)
 		{
 			targetPoint.y = transform.position.y;

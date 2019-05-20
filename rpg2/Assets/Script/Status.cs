@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Status : MonoBehaviour {
+
+	public Animator animator;
 	public int hp = 3;
-	public float _moveSpeed = 1;
+	private float _moveSpeed = 1;
 	public float moveSpeed
 	{
 		get
@@ -23,7 +25,40 @@ public class Status : MonoBehaviour {
 	public float attackTimeAfter = .5f;//攻击前摇
 	public float attackTimeBefore = .5f;//攻击后摇
 	public Skill attackSkill = new Skill();
-	public Skill currentSkill;//当前正在执行的技能
+	private Skill _currentSkill;//当前正在执行的技能
+	public Skill currentSkill//当前正在执行的技能
+	{
+		get
+		{
+			return _currentSkill;
+		}
+		set
+		{
+			_currentSkill = value;
+			if (animator != null)
+			{
+				if (_currentSkill == null)
+				{
+					animator.SetBool("attack", false);
+					animator.SetBool("attack2", false);
+					animator.SetBool("attack3", false);
+				}
+				else
+				{
+					if (Random.Range(0f, 1) < .5f)
+					{
+						animator.SetBool("attack", true);
+					}
+					else
+					{
+						animator.SetBool("attack2", true);
+					}
+					
+					//animator.speed = animator.GetCurrentAnimatorClipInfo(0)[0].clip.length / (attackTimeAfter + attackTimeBefore);
+				}
+			}
+		}
+	}
 	public User user;
 	public GameObject model;//模型动画
 	void Start () {
@@ -36,6 +71,7 @@ public class Status : MonoBehaviour {
 		{
 			c.isKinematic = true;
 		}
+		animator = model.GetComponent<Animator>();
 	}
 	
 	// Update is called once per frame

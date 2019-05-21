@@ -43,14 +43,48 @@ public class Mgr : MonoBehaviour {
 
 
 		var user = new User();
+		//初始化背包数据
 		user.packages.setIcon(new Icon(),0);
 		user.packages.setIcon(new Icon(),1);
 		user.packages.setIcon(new Icon(),2);
 		Icon icon = new Icon();
 		icon.item = getItem(1);
 		user.packages.setIcon(icon,3);
+		//初始化装备数据
 		user.eqs.setIcon(new Icon(), 0);
 		user.eqs.setIcon(new Icon(), 1);
+		//初始化技能数据
+		icon = new Icon();
+		var skillData = new SkillData();
+		icon.item = skillData;
+		user.skills.setIcon(icon, 0);
+
+		icon = new Icon();
+		skillData = new SkillData();
+		icon.item = skillData;
+		user.skills.setIcon(icon, 1);
+
+		icon = new Icon();
+		skillData = new SkillData();
+		icon.item = skillData;
+		user.skills.setIcon(icon, 2);
+
+		icon = new Icon();
+		skillData = new SkillData();
+		skillData.animName = "attack2";
+		skillData.attackTimeAfter *= 2;
+		skillData.attackTimeBefore *= 2;
+		icon.item = skillData;
+		user.skills.setIcon(icon, 3);
+
+		icon = new Icon();
+		skillData = new SkillData();
+		icon.item = skillData;
+		skillData.animName = "attack2";
+		skillData.attackTimeAfter *= 2;
+		skillData.attackTimeBefore *= 2;
+		user.skills.setIcon(icon, 4);
+
 		users.Add(user);
 
 	    player = Instantiate(monsterList[0]);//(GameObject)GameObject.Find("player");

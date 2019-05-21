@@ -45,8 +45,10 @@ public class DotaLikeCtrl : MonoBehaviour
 							}
 							t = t.parent;
 						}
-						status.attackSkill.target = t.gameObject;
-						followTo(t.gameObject, status.attackSkill);
+						var skill = new Skill();
+						skill.target = t.gameObject;
+						skill.data = (SkillData)status.user.skills.getIcon(Random.Range(0, status.user.skills.num)).item;
+						followTo(t.gameObject, skill);
 					}
 					else if (isGround)
 					{
@@ -72,10 +74,10 @@ public class DotaLikeCtrl : MonoBehaviour
 
 		if (followTarget != null && skill != null&&status.currentSkill==null)
 		{
-			if (Vector2.Distance(new Vector2(transform.position.x, transform.position.z), new Vector2(followTarget.transform.position.x, followTarget.transform.position.z)) < skill.range)
+			if (Vector2.Distance(new Vector2(transform.position.x, transform.position.z), new Vector2(followTarget.transform.position.x, followTarget.transform.position.z)) < skill.data.range)
 			{
 				Debug.Log("攻击");
-				status.attack(skill, Time.realtimeSinceStartup);
+				status.attack(this.skill, Time.realtimeSinceStartup);
 			}
 		}
 	}

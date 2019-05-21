@@ -3,8 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Status : MonoBehaviour {
+
+	public Animator animator;
 	public int hp = 3;
-	public float _moveSpeed = 1;
+	public float attackSpeed = 1;
+	private float _moveSpeed = 1;
 	public float moveSpeed
 	{
 		get
@@ -20,10 +23,32 @@ public class Status : MonoBehaviour {
 			_moveSpeed = value;
 		}
 	}
-	public float attackTimeAfter = .5f;//攻击前摇
-	public float attackTimeBefore = .5f;//攻击后摇
-	public Skill attackSkill = new Skill();
-	public Skill currentSkill;//当前正在执行的技能
+	//public Skill attackSkill = new Skill();
+	private Skill _currentSkill;//当前正在执行的技能
+	public Skill currentSkill//当前正在执行的技能
+	{
+		get
+		{
+			return _currentSkill;
+		}
+		set
+		{
+			_currentSkill = value;
+			if (animator != null)
+			{
+				if (_currentSkill == null)
+				{
+					animator.SetBool("attack", false);
+					animator.SetBool("attack2", false);
+					animator.SetBool("attack3", false);
+				}
+				else
+				{
+					animator.SetBool(_currentSkill.data.animName, true);
+				}
+			}
+		}
+	}
 	public User user;
 	public GameObject model;//模型动画
 	void Start () {
@@ -36,6 +61,7 @@ public class Status : MonoBehaviour {
 		{
 			c.isKinematic = true;
 		}
+		animator = model.GetComponent<Animator>();
 	}
 	
 	// Update is called once per frame
@@ -43,7 +69,7 @@ public class Status : MonoBehaviour {
 		if (hp<=0)
 		{
 			Debug.Log("小于0 删除");
-			var dis = model.transform;//gameObject.transform.GetChild(0);
+			var dis = model.transform;
 			dis.SetParent(null);
 			Destroy(gameObject);
 			var ani= dis.gameObject.GetComponent<Animator>();
@@ -72,12 +98,12 @@ public class Status : MonoBehaviour {
 	//是否在攻击后摇
 	public bool isInBefore(float time)
 	{
-		return time-currentSkill.attackStartTime<attackTimeBefore;
+		return time-currentSkill.attackStartTime<currentSkill.data.attackTimeBefore/attackSpeed;
 	}
 	//是否在攻击前摇
 	public bool isInAfter(float time)
 	{
-		return time - currentSkill.attackStartTime < attackTimeBefore+attackTimeAfter;
+		return time - currentSkill.attackStartTime < (currentSkill.data.attackTimeBefore+currentSkill.data.attackTimeAfter)/attackSpeed;
 	}
 
 	public void exeSkill()

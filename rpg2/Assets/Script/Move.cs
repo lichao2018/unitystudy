@@ -93,6 +93,13 @@ public class Move : MonoBehaviour {
 		targetPoint = p;
 	}
 
+    public void move(float rotation, float translation){
+        transform.Rotate(new Vector3(0, rotation, 0));
+        controller.Move(transform.forward * status.moveSpeed * translation);
+        animator.SetBool("walking", true);
+        animator.speed = status.moveSpeed * 1.25f;
+    }
+
 	public void stopMove()
 	{
 		moving = false;

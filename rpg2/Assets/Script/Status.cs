@@ -108,10 +108,10 @@ public class Status : MonoBehaviour {
 
 	public void exeSkill()
 	{
-		Debug.Log("执行技能"+currentSkill.target.name);
-		var ts = currentSkill.target.GetComponent<Status>();
-		ts.hp--;
-		currentSkill.skillExeover = true;
+        currentSkill.skillExeover = true;
+        var ts = currentSkill.target.GetComponent<Status>();
+        ts.hp--;
+        Debug.Log("执行技能"+currentSkill.target.name);
 	}
 
 

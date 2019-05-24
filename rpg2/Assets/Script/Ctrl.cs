@@ -7,9 +7,12 @@ using UnityEngine.EventSystems;
 public class Ctrl : MonoBehaviour {
 	Move move;
     float rotateSpeed = 30.0f;
+    Status status;
+
     // Use this for initialization
     void Start () {
 		move = this.GetComponent<Move>();
+        status = this.GetComponent<Status>();
     }
 	
 	// Update is called once per frame
@@ -23,6 +26,13 @@ public class Ctrl : MonoBehaviour {
         else{
             float angle = transform.localEulerAngles.y + rotation;
             move.move(rotation, translation);
+        }
+
+        if(Input.GetKeyDown(KeyCode.J)){
+            print("getkey down j");
+            var skill = new Skill();
+            skill.data = (SkillData)status.user.skills.getIcon(Random.Range(0, status.user.skills.num)).item;
+            status.attack(skill, Time.realtimeSinceStartup);
         }
     }
 }

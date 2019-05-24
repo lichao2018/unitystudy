@@ -33,7 +33,7 @@ public class Spawner : MonoBehaviour
 	{
 		//Start spawn monster
 		spawnList = new Object[limitSpawn];
-		//InvokeRepeating("SpawnMonster", spawnTimer, spawnTimer);
+		InvokeRepeating("SpawnMonster", spawnTimer, spawnTimer);
 
 	}
 

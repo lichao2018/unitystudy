@@ -2428,6 +2428,8 @@ MonoBehaviour:
   - {fileID: 1137665940093958, guid: 9b0b171fbd93d72448f81a0910d4b6e4, type: 2}
   monsterList:
   - {fileID: 1613939470329294, guid: 4883906f4efeec243ba88bfcdd021a61, type: 2}
+  skillCols:
+  - {fileID: 1233128566339742, guid: 94c03664a7cb7c54a80bc7f79c2b4137, type: 2}
   posName: 
 --- !u!4 &1033061887
 Transform:

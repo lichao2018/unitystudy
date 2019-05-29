@@ -39,7 +39,7 @@ public class DotaLikeCtrl : MonoBehaviour
 						var t = hit.transform;
 						while (t != null)
 						{
-							if (t.gameObject.GetComponent<Status>() != null)
+							if (move.GetComponent<Status>() != null)
 							{
 								break;
 							}
@@ -47,6 +47,7 @@ public class DotaLikeCtrl : MonoBehaviour
 						}
 						var skill = new Skill();
 						skill.target = t.gameObject;
+						skill.from = move.gameObject;
 						skill.data = (SkillData)status.user.skills.getIcon(Random.Range(0, status.user.skills.num)).item;
 						followTo(t.gameObject, skill);
 					}

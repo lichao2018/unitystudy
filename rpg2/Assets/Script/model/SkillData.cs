@@ -9,4 +9,5 @@ public class SkillData : Item
 	public int type;
 	public float range = 5;//攻击距离
 	public string animName = "attack";
+	public SkillAttackData[] skillAttackDatas;
 }

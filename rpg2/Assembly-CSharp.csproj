@@ -70,6 +70,9 @@
     <Compile Include="Assets\Script\model\Icon.cs" />
     <Compile Include="Assets\Script\model\IconPackage.cs" />
     <Compile Include="Assets\Script\model\Item.cs" />
+    <Compile Include="Assets\Script\model\SkillAttack.cs" />
+    <Compile Include="Assets\Script\model\SkillAttackData.cs" />
+    <Compile Include="Assets\Script\model\SkillCol.cs" />
     <Compile Include="Assets\Script\model\SkillData.cs" />
     <Compile Include="Assets\Script\model\User.cs" />
     <Compile Include="Assets\Script\MouseOrbit.cs" />

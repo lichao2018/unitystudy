@@ -33,6 +33,14 @@ public class Status : MonoBehaviour {
 		}
 		set
 		{
+			if (value==null&&_currentSkill!=null)
+			{
+				_currentSkill.stop();
+			}
+			if (value!=null)
+			{
+				value.start();
+			}
 			_currentSkill = value;
 			if (animator != null)
 			{
@@ -93,6 +101,7 @@ public class Status : MonoBehaviour {
 		skill.skillExeover = false;
 		currentSkill = skill;
 		skill.attackStartTime = time;
+		//bind
 	}
 
 	//是否在攻击后摇

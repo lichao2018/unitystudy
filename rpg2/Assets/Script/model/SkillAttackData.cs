@@ -6,6 +6,6 @@ public class SkillAttackData
 {
 	public float[] times;
 	public GameObject col;//攻击体
-	public string[] bindnames;
+	public HumanBodyBones bindname;//绑定人形位置 ，如果非人形，可以绑定其它位置
 	
 }

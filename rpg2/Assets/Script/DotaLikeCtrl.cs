@@ -47,7 +47,7 @@ public class DotaLikeCtrl : MonoBehaviour
 						}
 						var skill = new Skill();
 						skill.target = t.gameObject;
-						skill.from = move.gameObject;
+						skill.from = gameObject;
 						skill.data = (SkillData)status.user.skills.getIcon(Random.Range(0, status.user.skills.num)).item;
 						followTo(t.gameObject, skill);
 					}

@@ -54,22 +54,29 @@ public class Mgr : MonoBehaviour {
 		//初始化技能数据
 		var asd = new SkillAttackData();
 		asd.col = skillCols[0];
-		asd.times = new float[]{0,.1f};
+		asd.bindname = HumanBodyBones.RightHand;
+		asd.times = new float[]{0,1f};
+
+
+		var asd2 = new SkillAttackData();
+		asd2.col = skillCols[0];
+		asd2.bindname = HumanBodyBones.LeftHand;
+		asd2.times = new float[] { 0, 1f };
 
 		icon = new Icon();
 		var skillData = new SkillData();
 		icon.item = skillData;
-		user.skills.setIcon(icon, 0); skillData.skillAttackDatas = new SkillAttackData[] { asd };
+		user.skills.setIcon(icon, 0); skillData.skillAttackDatas = new SkillAttackData[] { asd,asd2 };
 
 		icon = new Icon();
 		skillData = new SkillData();
 		icon.item = skillData;
-		user.skills.setIcon(icon, 1); skillData.skillAttackDatas = new SkillAttackData[] { asd };
+		user.skills.setIcon(icon, 1); skillData.skillAttackDatas = new SkillAttackData[] { asd, asd2 };
 
 		icon = new Icon();
 		skillData = new SkillData();
 		icon.item = skillData;
-		user.skills.setIcon(icon, 2); skillData.skillAttackDatas = new SkillAttackData[] { asd };
+		user.skills.setIcon(icon, 2); skillData.skillAttackDatas = new SkillAttackData[] { asd, asd2 };
 
 		icon = new Icon();
 		skillData = new SkillData();

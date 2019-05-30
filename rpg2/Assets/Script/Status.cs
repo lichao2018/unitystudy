@@ -54,6 +54,7 @@ public class Status : MonoBehaviour {
 				{
 					animator.SetBool(_currentSkill.data.animName, true);
 				}
+				
 			}
 		}
 	}

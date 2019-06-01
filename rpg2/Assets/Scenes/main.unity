@@ -2587,8 +2587,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 0f5cd01db89500f449c88ea3a36b2b82, type: 3}
   - {fileID: 21300000, guid: ca7139110860c2846ba077cd2ba66552, type: 3}
   models:
-  - {fileID: 1704359457595742, guid: 4d8fca1358746004eb724d98e739a5e2, type: 2}
-  - {fileID: 1137665940093958, guid: 9b0b171fbd93d72448f81a0910d4b6e4, type: 2}
+  - {fileID: 1834960353915864, guid: 382a89a059ca24e579f7c69e392b9908, type: 2}
   monsterList:
   - {fileID: 1613939470329294, guid: 4883906f4efeec243ba88bfcdd021a61, type: 2}
   posName: 

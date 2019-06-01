@@ -89,7 +89,7 @@ public class Mgr : MonoBehaviour {
 
 	    player = Instantiate(monsterList[0]);//(GameObject)GameObject.Find("player");
 		player.layer = LayerMask.NameToLayer("A");
-        player.AddComponent<DotaLikeCtrl>();
+        player.AddComponent<Ctrl>();
 		var status= player.GetComponent<Status>();
 		status.model=Instantiate(models[0], player.transform, false);
 		status.user = user;

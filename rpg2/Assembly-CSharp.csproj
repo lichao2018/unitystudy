@@ -82,6 +82,8 @@
     <Compile Include="Assets\Script\ui\IconWrapper.cs" />
     <Compile Include="Assets\Script\ui\JueseUI.cs" />
     <Compile Include="Assets\Script\ui\MainUI.cs" />
+    <None Include="Assets\QS\QS-Textures-Grass-FREE.txt" />
+    <None Include="Assets\QS\ComposerUI.txt" />
     <Reference Include="UnityEditor.StandardEvents">
       <HintPath>/Users/lichao/github/unity/unitystudy/rpg2/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
     </Reference>

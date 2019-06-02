@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 //主机游戏类型的控制器，点击技能释放攻击，不需要指定怪物
 public class Ctrl : MonoBehaviour {
 	Move move;
-    float rotateSpeed = 30.0f;
+    float rotateSpeed = 300.0f;
     Status status;
 
     // Use this for initialization
@@ -24,7 +24,6 @@ public class Ctrl : MonoBehaviour {
             move.stopMove();
         }
         else{
-            float angle = transform.localEulerAngles.y + rotation;
             move.move(rotation, translation);
         }
 

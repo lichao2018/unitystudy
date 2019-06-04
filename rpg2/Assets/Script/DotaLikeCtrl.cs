@@ -78,7 +78,7 @@ public class DotaLikeCtrl : MonoBehaviour
 			if (Vector2.Distance(new Vector2(transform.position.x, transform.position.z), new Vector2(followTarget.transform.position.x, followTarget.transform.position.z)) < skill.data.range)
 			{
 				Debug.Log("攻击");
-				status.attack(this.skill, Time.realtimeSinceStartup);
+				status.attack(this.skill, Time.time);
 			}
 		}
 	}

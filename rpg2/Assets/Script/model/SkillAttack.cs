@@ -8,12 +8,14 @@ public class SkillAttack
 
 	private bool currentActive = false;
 	//绑定攻击体
-	public void start(Transform target)
+	public void start(Transform target,GameObject player)
 	{
 		Debug.Log("start");
 		//foreach (var c in cols)
 		//{
 		col = GameObject.Instantiate(data.col, target);//, false);
+		col.GetComponent<SkillCol>().skillAttack = this;
+		col.layer = LayerMask.NameToLayer("Skill"+player.tag);
 		col.SetActive(false);
 		//}
 

@@ -29,7 +29,7 @@ public class Skill  {
 				}
 				var sa = new SkillAttack();
 				sa.data = sad;
-				sa.start(bindBone);
+				sa.start(bindBone,from);
 				skillAttacks[i] = sa;
 			}
 		}

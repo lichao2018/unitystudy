@@ -21,7 +21,7 @@ public class Move : MonoBehaviour {
 	void FixedUpdate() {//移动攻击，需要固定时间更新
 		if (status.currentSkill != null )//如果当前正在执行技能，停止移动
 		{
-			var time = Time.realtimeSinceStartup;
+			var time = Time.time;
 
 			var t = time - status.currentSkill.attackStartTime;
 			t/=(status.currentSkill.data.attackTimeAfter+status.currentSkill.data.attackTimeBefore)/ status.attackSpeed;
@@ -91,6 +91,7 @@ public class Move : MonoBehaviour {
 
 		movedir.y -= 200 * Time.deltaTime;
 		controller.Move(movedir * Time.deltaTime);
+		//controller.SimpleMove(movedir * Time.deltaTime);
 	}
 
 	public void moveTo(Vector3 p)

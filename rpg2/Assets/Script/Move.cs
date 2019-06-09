@@ -18,18 +18,24 @@ public class Move : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate() {//移动攻击，需要固定时间更新
 		if (status.currentSkill != null )//如果当前正在执行技能，停止移动
 		{
+			var time = Time.time;
+
+			var t = time - status.currentSkill.attackStartTime;
+			t/=(status.currentSkill.data.attackTimeAfter+status.currentSkill.data.attackTimeBefore)/ status.attackSpeed;
+			status.currentSkill.update(t);
+
 			if (!status.currentSkill.skillExeover)//没有执行完成技能执行技能
 			{
-				if (!status.isInBefore(Time.realtimeSinceStartup))
+				if (!status.isInBefore(time))
 				{
 					status.exeSkill();
 				}
 			}else//判断后摇
 			{
-				if (!status.isInAfter(Time.realtimeSinceStartup))
+				if (!status.isInAfter(time))
 				{
 					status.currentSkill = null;
 				}
@@ -85,6 +91,7 @@ public class Move : MonoBehaviour {
 
 		movedir.y -= 200 * Time.deltaTime;
 		controller.Move(movedir * Time.deltaTime);
+		//controller.SimpleMove(movedir * Time.deltaTime);
 	}
 
 	public void moveTo(Vector3 p)

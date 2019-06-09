@@ -33,6 +33,14 @@ public class Status : MonoBehaviour {
 		}
 		set
 		{
+			if (value==null&&_currentSkill!=null)
+			{
+				_currentSkill.stop();
+			}
+			if (value!=null)
+			{
+				value.start();
+			}
 			_currentSkill = value;
 			if (animator != null)
 			{
@@ -46,6 +54,7 @@ public class Status : MonoBehaviour {
 				{
 					animator.SetBool(_currentSkill.data.animName, true);
 				}
+				
 			}
 		}
 	}
@@ -93,6 +102,7 @@ public class Status : MonoBehaviour {
 		skill.skillExeover = false;
 		currentSkill = skill;
 		skill.attackStartTime = time;
+		//bind
 	}
 
 	//是否在攻击后摇
@@ -108,10 +118,12 @@ public class Status : MonoBehaviour {
 
 	public void exeSkill()
 	{
-        currentSkill.skillExeover = true;
-        var ts = currentSkill.target.GetComponent<Status>();
-        ts.hp--;
-        Debug.Log("执行技能"+currentSkill.target.name);
+		if (currentSkill.target!=null) {
+			Debug.Log("执行技能" + currentSkill.target.name);
+			var ts = currentSkill.target.GetComponent<Status>();
+			ts.hp--;
+		}
+		currentSkill.skillExeover = true;
 	}
 
 

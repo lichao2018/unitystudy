@@ -39,7 +39,7 @@ public class DotaLikeCtrl : MonoBehaviour
 						var t = hit.transform;
 						while (t != null)
 						{
-							if (t.gameObject.GetComponent<Status>() != null)
+							if (move.GetComponent<Status>() != null)
 							{
 								break;
 							}
@@ -47,6 +47,7 @@ public class DotaLikeCtrl : MonoBehaviour
 						}
 						var skill = new Skill();
 						skill.target = t.gameObject;
+						skill.from = gameObject;
 						skill.data = (SkillData)status.user.skills.getIcon(Random.Range(0, status.user.skills.num)).item;
 						followTo(t.gameObject, skill);
 					}
@@ -77,7 +78,7 @@ public class DotaLikeCtrl : MonoBehaviour
 			if (Vector2.Distance(new Vector2(transform.position.x, transform.position.z), new Vector2(followTarget.transform.position.x, followTarget.transform.position.z)) < skill.data.range)
 			{
 				Debug.Log("攻击");
-				status.attack(this.skill, Time.realtimeSinceStartup);
+				status.attack(this.skill, Time.time);
 			}
 		}
 	}

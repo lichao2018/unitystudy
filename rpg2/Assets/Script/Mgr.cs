@@ -12,6 +12,7 @@ public class Mgr : MonoBehaviour {
 	public Sprite[] icons;
 	public GameObject[] models;
 	public GameObject[] monsterList; //monster list to spawn
+	public GameObject[] skillCols;//技能碰撞列表
 	public List<User> users = new List<User>();
 	public Dictionary<int,Item> items=new Dictionary<int,Item>();
 
@@ -54,32 +55,46 @@ public class Mgr : MonoBehaviour {
 		user.eqs.setIcon(new Icon(), 0);
 		user.eqs.setIcon(new Icon(), 1);
 		//初始化技能数据
+		var asd = new SkillAttackData();
+		asd.col = skillCols[0];
+		asd.bindname = HumanBodyBones.RightHand;
+		asd.times = new float[]{0,1f};
+
+
+		var asd2 = new SkillAttackData();
+		asd2.col = skillCols[0];
+		asd2.bindname = HumanBodyBones.LeftHand;
+		asd2.times = new float[] { 0, 1f };
+
 		icon = new Icon();
 		var skillData = new SkillData();
 		icon.item = skillData;
-		user.skills.setIcon(icon, 0);
+		user.skills.setIcon(icon, 0); skillData.skillAttackDatas = new SkillAttackData[] { asd,asd2 };
 
 		icon = new Icon();
 		skillData = new SkillData();
 		icon.item = skillData;
-		user.skills.setIcon(icon, 1);
+		user.skills.setIcon(icon, 1); skillData.skillAttackDatas = new SkillAttackData[] { asd, asd2 };
 
 		icon = new Icon();
 		skillData = new SkillData();
 		icon.item = skillData;
-		user.skills.setIcon(icon, 2);
+		user.skills.setIcon(icon, 2); skillData.skillAttackDatas = new SkillAttackData[] { asd, asd2 };
 
 		icon = new Icon();
 		skillData = new SkillData();
 		skillData.animName = "attack2";
 		skillData.attackTimeAfter *= 2;
 		skillData.attackTimeBefore *= 2;
+
+		skillData.skillAttackDatas = new SkillAttackData[] { asd};
+	
 		icon.item = skillData;
 		user.skills.setIcon(icon, 3);
 
 		icon = new Icon();
 		skillData = new SkillData();
-		icon.item = skillData;
+		icon.item = skillData; skillData.skillAttackDatas = new SkillAttackData[] { asd };
 		skillData.animName = "attack2";
 		skillData.attackTimeAfter *= 2;
 		skillData.attackTimeBefore *= 2;

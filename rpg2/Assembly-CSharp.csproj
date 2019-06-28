@@ -111,7 +111,6 @@
     <None Include="Assets\unity-chan!\Unity-chan! Model\Art\UnityChanShader\Shader\Unitychan_chara_hada.shader" />
     <None Include="Assets\unity-chan!\Unity-chan! Model\Art\UnityChanShader\Shader\Unitychan_chara_hada_blend.shader" />
     <None Include="Assets\QS\ComposerUI.txt" />
-    <None Include="Assets\Wispy Sky\ReadMe.txt" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>/Users/lichao/github/unity/unitystudy/rpg2/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>

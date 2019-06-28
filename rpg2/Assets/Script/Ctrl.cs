@@ -30,6 +30,7 @@ public class Ctrl : MonoBehaviour {
         if(Input.GetKeyDown(KeyCode.J)){
             var skill = new Skill();
             skill.data = (SkillData)status.user.skills.getIcon(Random.Range(0, status.user.skills.num)).item;
+            skill.from = gameObject;
             status.attack(skill, Time.realtimeSinceStartup);
         }
     }

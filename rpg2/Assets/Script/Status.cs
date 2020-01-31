@@ -99,6 +99,9 @@ public class Status : MonoBehaviour {
 
 	public void attack(Skill skill,float time)
 	{
+        if(currentSkill != null){
+            return;
+        }
 		skill.skillExeover = false;
 		currentSkill = skill;
 		skill.attackStartTime = time;

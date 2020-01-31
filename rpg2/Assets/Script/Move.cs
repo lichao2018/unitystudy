@@ -101,6 +101,9 @@ public class Move : MonoBehaviour {
 	}
 
     public void move(float rotation, float translation){
+        if(status.currentSkill != null){//如果正在执行技能，则不能移动
+            return;
+        }
         transform.Rotate(new Vector3(0, rotation, 0));
         controller.Move(transform.forward * status.moveSpeed * translation);
         animator.SetBool("walking", true);

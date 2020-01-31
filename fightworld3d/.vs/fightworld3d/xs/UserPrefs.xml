@@ -1,0 +1,18 @@
+﻿<Properties StartupConfiguration="{C988AE7D-B7CD-3D2C-8FF0-F464018D2600}|">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/CharacterAnimator.cs">
+    <Files>
+      <File FileName="Assets/Scripts/Interactable.cs" Line="10" Column="12" />
+      <File FileName="Assets/Scripts/PlayerController.cs" Line="65" Column="10" />
+      <File FileName="Assets/Scripts/PlayerMotor.cs" Line="37" Column="39" />
+      <File FileName="Assets/Scripts/CameraController.cs" Line="36" Column="1" />
+      <File FileName="Assets/Scripts/CharacterAnimator.cs" Line="24" Column="12" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="Unity.Editor" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

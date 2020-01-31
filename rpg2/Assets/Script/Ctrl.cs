@@ -17,6 +17,14 @@ public class Ctrl : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        if(Input.GetKeyDown(KeyCode.S)){
+            move.move(180, 0);
+        }
+
+        if(Input.GetKey(KeyCode.S)){
+            return;
+        }
+
         float translation = Input.GetAxis("Vertical") * Time.deltaTime;
         float rotation = Input.GetAxis("Horizontal") * rotateSpeed * Time.deltaTime;
 

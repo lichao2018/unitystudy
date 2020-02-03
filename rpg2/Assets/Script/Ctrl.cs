@@ -39,7 +39,28 @@ public class Ctrl : MonoBehaviour {
             var skill = new Skill();
             skill.data = (SkillData)status.user.skills.getIcon(Random.Range(0, status.user.skills.num)).item;
             skill.from = gameObject;
+            //todo check attack target and set to skill
+            skill.target = checkTarget();
             status.attack(skill, Time.realtimeSinceStartup);
         }
+    }
+
+    //检测前方扇形区域中是否有敌人。半径1，角度30，layer未设置
+    private GameObject checkTarget(){
+        Collider[] cols = Physics.OverlapSphere(gameObject.transform.position, 1);
+        //if(cols!=null && cols.Length>0) Debug.Log(cols[0]);
+        if (cols.Length > 0)
+        {
+            foreach (Collider col in cols)
+            {
+                Quaternion targetRot = Quaternion.LookRotation(col.transform.position - gameObject.transform.position);
+                if (Quaternion.Angle(targetRot, gameObject.transform.rotation) < 30) {
+                    if (col.gameObject != null) {
+                        return col.gameObject;
+                    }
+                }
+            }
+        }
+        return null;
     }
 }

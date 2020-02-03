@@ -81,6 +81,7 @@ public class Status : MonoBehaviour {
 			var dis = model.transform;
 			dis.SetParent(null);
 			Destroy(gameObject);
+            Destroy(model);
 			var ani= dis.gameObject.GetComponent<Animator>();
 			if (ani!=null)
 			{
@@ -124,7 +125,9 @@ public class Status : MonoBehaviour {
 		if (currentSkill.target!=null) {
 			Debug.Log("执行技能" + currentSkill.target.name);
 			var ts = currentSkill.target.GetComponent<Status>();
-			ts.hp--;
+            if(ts != null){
+                ts.hp--;
+            }
 		}
 		currentSkill.skillExeover = true;
 	}

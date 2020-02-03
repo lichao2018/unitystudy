@@ -22,6 +22,10 @@ public class AI : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        if(player == null){
+            Debug.Log("player == null");
+            return;
+        }
         float distanceToPlayer = Vector3.Distance(player.transform.position, transform.position);
         if(distanceToPlayer < attackRange){
             move.stopMove();

@@ -107,6 +107,7 @@ public class Mgr : MonoBehaviour {
         player.AddComponent<Ctrl>();
 		var status= player.GetComponent<Status>();
 		status.model=Instantiate(models[0], player.transform, false);
+        status.model.tag = "player";
 		status.user = user;
 		user.model = player;
 		player.tag = "A";

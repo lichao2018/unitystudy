@@ -63,7 +63,7 @@ public class Spawner : MonoBehaviour
 		var status= monSpawn.GetComponent<Status>();
 		status.model = Instantiate(Mgr.getInstance().models[Random.Range(0, Mgr.getInstance().models.Length)], monSpawn.transform, false);
 		monSpawn.AddComponent<AI>();
-		monSpawn.tag = tag;
+		monSpawn.tag = "enemy";
 		for (int i = 0; i < spawnList.Length; i++)
 		{
 			if (spawnList[i] == null)

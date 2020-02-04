@@ -95,7 +95,12 @@ public class Status : MonoBehaviour {
 			{
 				c.isKinematic = false;
 			}
-		}
+        }else{
+            //动画结束会产生位置偏移，需要将model还原到父对象到位置
+            if(animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1.0f){
+                model.transform.position = transform.position;
+            }
+        }
 	}
 
 	public void attack(Skill skill,float time)

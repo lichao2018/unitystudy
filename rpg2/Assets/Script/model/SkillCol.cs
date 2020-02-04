@@ -10,6 +10,8 @@ public class SkillCol : MonoBehaviour
 	void OnTriggerEnter(Collider aaa)
 	{
 		var s= aaa.gameObject.GetComponent<Status>();
+        //先不检测技能碰撞
+        s = null;
 		if (s!=null)
 		{
 			var t = Time.time;

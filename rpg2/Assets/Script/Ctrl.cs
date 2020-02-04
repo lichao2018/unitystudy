@@ -39,7 +39,7 @@ public class Ctrl : MonoBehaviour {
             var skill = new Skill();
             skill.data = (SkillData)status.user.skills.getIcon(Random.Range(0, status.user.skills.num)).item;
             skill.from = gameObject;
-            //todo check attack target and set to skill
+            //check enemy
             skill.target = checkTarget();
             status.attack(skill, Time.realtimeSinceStartup);
         }
@@ -55,7 +55,8 @@ public class Ctrl : MonoBehaviour {
             {
                 Quaternion targetRot = Quaternion.LookRotation(col.transform.position - gameObject.transform.position);
                 if (Quaternion.Angle(targetRot, gameObject.transform.rotation) < 30) {
-                    if (col.gameObject != null) {
+                    if (col.gameObject != null && col.gameObject.tag == "enemy") {
+                        Debug.Log("find a enemy");
                         return col.gameObject;
                     }
                 }

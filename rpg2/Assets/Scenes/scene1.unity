@@ -407,7 +407,7 @@ MonoBehaviour:
   - {fileID: 1613939470329294, guid: 4883906f4efeec243ba88bfcdd021a61, type: 3}
   spawnList: []
   spawnTimer: 1
-  limitSpawn: 1
+  limitSpawn: 5
   areaSpawn: 5
   ShowArea: 1
   areaColor: {r: 0, g: 0, b: 0, a: 0}

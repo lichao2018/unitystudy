@@ -10,6 +10,8 @@ TagManager:
   - B
   - Item
   - Door
+  - player
+  - enemy
   layers:
   - Default
   - TransparentFX

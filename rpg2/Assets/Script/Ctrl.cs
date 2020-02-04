@@ -45,7 +45,7 @@ public class Ctrl : MonoBehaviour {
         }
     }
 
-    //检测前方扇形区域中是否有敌人。半径1，角度30，layer未设置
+    //检测前方扇形区域中是否有敌人。半径1，角度60，layer未设置
     private GameObject checkTarget(){
         Collider[] cols = Physics.OverlapSphere(gameObject.transform.position, 1);
         //if(cols!=null && cols.Length>0) Debug.Log(cols[0]);
@@ -54,7 +54,7 @@ public class Ctrl : MonoBehaviour {
             foreach (Collider col in cols)
             {
                 Quaternion targetRot = Quaternion.LookRotation(col.transform.position - gameObject.transform.position);
-                if (Quaternion.Angle(targetRot, gameObject.transform.rotation) < 30) {
+                if (Quaternion.Angle(targetRot, gameObject.transform.rotation) < 60) {
                     if (col.gameObject != null && col.gameObject.tag == "enemy") {
                         Debug.Log("find a enemy");
                         return col.gameObject;

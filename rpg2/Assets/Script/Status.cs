@@ -80,10 +80,10 @@ public class Status : MonoBehaviour {
 			Debug.Log("小于0 删除");
 			var dis = model.transform;
 			dis.SetParent(null);
-			//Destroy(gameObject);
-            //Destroy(model);
 			var ani= dis.gameObject.GetComponent<Animator>();
             DestroyImmediate(ani);
+            Invoke("destroy", 1);
+
 			if (ani!=null)
 			{
 				ani.enabled = false;
@@ -110,7 +110,12 @@ public class Status : MonoBehaviour {
         }
 	}
 
-	public void attack(Skill skill,float time)
+    void destroy(){
+        Destroy(gameObject);
+        Destroy(model);
+    }
+
+    public void attack(Skill skill,float time)
 	{
         if(currentSkill != null){
             return;

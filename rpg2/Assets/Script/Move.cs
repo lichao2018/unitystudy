@@ -100,18 +100,30 @@ public class Move : MonoBehaviour {
 		targetPoint = p;
 	}
 
-    public void move(float rotation, float translation){
+    public void move(float rotation, float translation, bool run){
         if(status.currentSkill != null){//如果正在执行技能，则不能移动
             return;
         }
+        if (run)
+        {
+            translation *= 1.5f;
+        }
+        else
+        {
+            animator.speed = status.moveSpeed * 1.25f;
+        }
+
         transform.Rotate(new Vector3(0, rotation, 0));
         controller.Move(transform.forward * status.moveSpeed * translation);
-        animator.SetBool("walking", true);
-        animator.speed = status.moveSpeed * 1.25f;
+        animator.SetBool("running", run);
+        animator.SetBool("walking", !run);
     }
 
 	public void stopMove()
 	{
 		moving = false;
-	}
+        animator.SetBool("running", false);
+        animator.SetBool("walking", false);
+        status.moveSpeed = 1;
+    }
 }

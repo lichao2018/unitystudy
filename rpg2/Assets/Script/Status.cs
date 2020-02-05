@@ -96,8 +96,14 @@ public class Status : MonoBehaviour {
 				c.isKinematic = false;
 			}
         }else{
-            //动画结束会产生位置偏移，需要将model还原到父对象到位置
-            if(animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1.0f){
+            //攻击动画结束会产生位置偏移，需要将model还原到父对象到位置
+            if(currentSkill != null){
+                if (animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1.0f)
+                {
+                    model.transform.position = transform.position;
+                }
+            }else{
+                //跑步动画开始会产生位置偏移
                 model.transform.position = transform.position;
             }
         }

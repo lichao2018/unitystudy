@@ -13,10 +13,10 @@ public class SkillAttack
 		Debug.Log("start");
 		//foreach (var c in cols)
 		//{
-		col = GameObject.Instantiate(data.col, target);//, false);
-		col.GetComponent<SkillCol>().skillAttack = this;
-		col.layer = LayerMask.NameToLayer("Skill"+player.tag);
-		col.SetActive(false);
+		//col = GameObject.Instantiate(data.col, target);//, false);
+		//col.GetComponent<SkillCol>().skillAttack = this;
+		//col.layer = LayerMask.NameToLayer("Skill"+player.tag);
+		//col.SetActive(false);
 		//}
 
 	}

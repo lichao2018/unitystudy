@@ -8,6 +8,8 @@ public class Ctrl : MonoBehaviour {
 	Move move;
     float rotateSpeed = 300.0f;
     Status status;
+    float clickWTime;
+    bool run = false;
 
     // Use this for initialization
     void Start () {
@@ -18,11 +20,23 @@ public class Ctrl : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         if(Input.GetKeyDown(KeyCode.S)){
-            move.move(180, 0);
+            move.move(180, 0, false);
         }
 
         if(Input.GetKey(KeyCode.S)){
             return;
+        }
+
+        if(Input.GetKeyDown(KeyCode.W)){
+            if((Time.time - clickWTime) < 1){
+                run = true;
+            }else{
+                run = false;
+            }
+            clickWTime = Time.time;
+        }
+        if(Input.GetKeyUp(KeyCode.W)){
+            run = false;
         }
 
         float translation = Input.GetAxis("Vertical") * Time.deltaTime;
@@ -32,7 +46,7 @@ public class Ctrl : MonoBehaviour {
             move.stopMove();
         }
         else{
-            move.move(rotation, translation);
+            move.move(rotation, translation, run);
         }
 
         if(Input.GetKeyDown(KeyCode.J)){

@@ -80,9 +80,10 @@ public class Status : MonoBehaviour {
 			Debug.Log("小于0 删除");
 			var dis = model.transform;
 			dis.SetParent(null);
-			Destroy(gameObject);
-            Destroy(model);
+			//Destroy(gameObject);
+            //Destroy(model);
 			var ani= dis.gameObject.GetComponent<Animator>();
+            DestroyImmediate(ani);
 			if (ani!=null)
 			{
 				ani.enabled = false;
